@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\BuildServerConfig\Cake\PropertyGroup.csproj" />
+  <ItemGroup>
+    <Compile Include="..\..\BuildServerConfig\Cake\Program.cs" Link="Program.cs" />
+    <Compile Include="..\..\BuildServerConfig\Cake\BuildContext.cs" Link="BuildContext.cs" />
+    <Compile Include="..\..\BuildServerConfig\Cake\CleanTask.cs" Link="CleanTask.cs" />
+    <Compile Include="..\..\BuildServerConfig\Cake\ObfuscateTask.cs" Link="ObfuscateTask.cs" />
+    <Compile Include="..\..\BuildServerConfig\Cake\CodeSignTask.cs" Link="CodeSignTask.cs" />
+    <Compile Include="..\..\BuildServerConfig\Cake\PackTask.cs" Link="PackTask.cs" />
+    <Compile Include="..\..\BuildServerConfig\Cake\TestTask.cs" Link="TestTask.cs" />
+  </ItemGroup>
+  <Import Project="..\..\BuildServerConfig\Cake\BaseFrosting.csproj" />
+  <Import Project="..\..\BuildServerConfig\Cake\ProjectBuild.csproj" />
+</Project>
