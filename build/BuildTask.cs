@@ -11,21 +11,8 @@ public sealed class BuildTask : FrostingTask<BuildContext>
     public override void Run(BuildContext context)
     {
         var settings = new MSBuildSettings()
-            .SetConfiguration(context.MsBuildConfiguration)
-            .WithProperty("ThreePartVersion", $"{context.MajorVersion}.{context.MinorVersion}")
-            .WithProperty("VersionRevision", context.SvnRevision);
+            .SetConfiguration(context.MsBuildConfiguration);
 
         context.MSBuild(context.SolutionName, settings);
-
-        context.FileWriteLines(
-            $"{context.BuildTarget}/Revision.txt", 
-            new string[]
-            {
-                "<RepositoryData>",
-                $"  <Repository> {context.SvnUrl} </Repository>",
-                $"  <Revision> {context.SvnRevision} </Revision>",
-                $"  <BuildDate> {DateTime.Now} </BuildDate>",
-                "</RepositoryData>"
-            });
     }
 }
